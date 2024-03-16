@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<header>
+    <nav>
+      <h1>
+        <a href="" class="logo">Logo</a>
+      </h1>
+      <ul>
+        <li>
+          <a href="">About</a>
+        </li>
+        <li>
+          <a href="">Services</a>
+        </li>
+        <li>
+          <a href="">Portfolio</a>
+        </li>
+        <li>
+          <a href="">Contact</a>
+        </li>
+      </ul>
+      <button class="toggle-menu" aria-label="Responsive Navigation Menu">☰</button>
+    </nav>
+  </header>
+  <main>
+    Để giải quyết nhiệm vụ đầu tiên, chúng ta thêm một thuộc tính padding-top vào phần tử main. Giá trị của thuộc tính này nên bằng với chiều cao của header. Trong trường hợp của chúng ta, chúng ta vẫn chưa thiết lập một chiều cao cố định cho header của chúng ta, vì thế chúng ta sẽ sử dụng một số JavaScript để tính toán nó, và sau đó thêm padding tương ứng vào trong phần tử main.
+
+Để giải quyết nhiệm vụ thứ hai, chúng ta sẽ làm những thứ sau đây:
+
+Truy vấn số pixel mà trang web đã được cuộn theo chiều dọc.
+Nếu con số này lớn hơn 150px, chúng ta thêm lớp scroll vào header.
+JavaScript
+Dưới đây là các mã JavaScript cần thiết - chúng ta bắt đầu bằng cách xác định một số biến, tính chiều cao của header, sau đó gắn giá trị đó cho  padding-top của phần tử main:
+
+var m = document.querySelector("main"),
+    h = document.querySelector("header"),
+    hHeight;
+function setTopPadding() {
+  hHeight = h.offsetHeight;
+  m.style.paddingTop = hHeight + "px";
+}
+Để minh hoạ, chúng ta sử dụng các thuộc tính offsetHeight để lấy chiều cao của header. Hãy nhớ rằng chúng ta có thể làm tương tự bằng cách sử dụng phương thức getBoundingClientRect(). Cần lưu ý rằng phương thức này có thể trả về các giá trị thập phân.
+
+Bây giờ vào sự kiện cuộn trang:
+
+function onScroll() 
+    <!-- content here -->
+  </main>
+  <style>
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #DD3543;
+  }
+  nav {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    transition: align-items .2s;
+  }
+  .logo {
+    font-size: 2rem;
+    display: inline-block;
+    padding: 20px 30px;
+    background: #F35B66;
+    color: #fff;
+    margin: 50px 0 0 50px;
+    transition: all .2s;
+  }
+  ul {
+    display: flex;
+    margin: 50px 50px 0 0;
+    padding: 0;
+    transition: margin .2s;
+  }
+  li:not(:last-child) {
+    margin-right: 20px;
+  }
+  li a {
+    display: block;
+    padding: 10px 20px;
+  }
+  .toggle-menu {
+    display: none;
+    font-size: 2rem;
+    color: #fff;
+    margin: 10px 10px 0 0;
+    transition: margin .2s;
+  }
+  main {
+    display: block;
+    padding: 0 20px;
+  }
+</html>
