@@ -13,9 +13,9 @@ body {
 
 header {
     background-color: #c771f1;
-    padding: 20px 0;
+    padding: 80px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
+    background-image: url(petshop.jpg);
 }
 
 .container {
@@ -25,7 +25,7 @@ header {
 }
 
 .logo {
-    font-size: 50px;
+    font-size: 70px;
     font-weight: bold;
     color: #ff008c;
 }
@@ -42,7 +42,7 @@ nav {
 }
 
 .nav-link:hover {
-    color: #a2ff00f0;
+    color: #f00c26f0;
 }
 
 .product-card {
